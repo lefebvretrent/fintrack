@@ -16,6 +16,23 @@ class TransactionRepository extends ServiceEntityRepository
         parent::__construct($registry, Transaction::class);
     }
 
+	public function findByDateRangeAndCategory(
+		\DateTime $startDate,
+		\DateTime $endDate,
+		\App\Entity\Category $category
+	): array {
+		return $this->createQueryBuilder('t')
+			->where('t.date >= :startDate')
+			->andWhere('t.date <= :endDate')
+			->andWhere('t.category = :category')
+			->setParameter('startDate', $startDate)
+			->setParameter('endDate', $endDate)
+			->setParameter('category', $category)
+			->orderBy('t.date', 'DESC')
+			->getQuery()
+			->getResult();
+	}
+
     //    /**
     //     * @return Transaction[] Returns an array of Transaction objects
     //     */
