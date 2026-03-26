@@ -42,10 +42,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: #f0f2f5;
   color: #1a1a2e;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .app {
   min-height: 100vh;
+  width: 100%;
 }
 
 .navbar {
@@ -100,8 +104,7 @@ body {
 }
 
 .main-content {
-  max-width: 1700px;
-  margin: 0 auto;
+  width: 100%;
   padding: 2rem;
 }
 
